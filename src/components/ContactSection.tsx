@@ -1,28 +1,31 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Mail, Github, Instagram } from "lucide-react";
-import { MessageCircle } from "lucide-react";
+import { Mail, Github, Instagram, MessageCircle } from "lucide-react";
 
 const contacts = [
   {
     icon: MessageCircle,
-    label: "WhatsApp",
+    label: "Chamar no Whats",
     href: "https://wa.me/5551980337058",
+    gradient: "from-neon-cyan to-neon-magenta",
   },
   {
     icon: Mail,
     label: "Email",
     href: "mailto:isagularte09@gmail.com",
+    gradient: "from-neon-magenta to-neon-purple",
   },
   {
     icon: Instagram,
     label: "Instagram",
     href: "https://www.instagram.com/isa_gularte27",
+    gradient: "from-neon-purple to-neon-cyan",
   },
   {
     icon: Github,
     label: "GitHub",
     href: "https://github.com/IsaGularte",
+    gradient: "from-neon-cyan to-neon-purple",
   },
 ];
 
@@ -35,9 +38,9 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-8 text-foreground"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-8 text-gradient-vibrant"
         >
-          Vamos Conversar
+          Vamos Conectar
         </motion.h2>
 
         <motion.p
@@ -60,12 +63,12 @@ const ContactSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.03, y: -5 }}
               >
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full h-16 text-base font-medium border-border text-foreground hover:border-space-cyan hover:text-space-cyan hover:bg-space-cyan/5 transition-all duration-300"
+                  className={`w-full h-20 text-base font-semibold border-2 bg-gradient-to-r ${contact.gradient} bg-clip-text text-transparent border-neon-cyan/30 hover:border-neon-cyan hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all duration-300`}
                   asChild
                 >
                   <a
@@ -74,8 +77,10 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3"
                   >
-                    <Icon className="w-5 h-5" />
-                    {contact.label}
+                    <Icon className={`w-6 h-6 bg-gradient-to-r ${contact.gradient} bg-clip-text`} style={{ WebkitTextFillColor: 'transparent' }} />
+                    <span className={`bg-gradient-to-r ${contact.gradient} bg-clip-text`}>
+                      {contact.label}
+                    </span>
                   </a>
                 </Button>
               </motion.div>
@@ -90,7 +95,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mt-16 text-sm text-muted-foreground space-y-2"
         >
-          <p>Desenvolvido por Isadora Gularte</p>
+          <p>Desenvolvido por <span className="text-neon-cyan font-semibold">Isadora Gularte</span></p>
           <p className="text-xs">Portfólio 2025</p>
         </motion.div>
       </div>

@@ -1,8 +1,8 @@
 import StarField from "@/components/StarField";
 import HeroSection from "@/components/HeroSection";
-import JourneySection from "@/components/JourneySection";
+import TechStackSection from "@/components/TechStackSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import SkillsSection from "@/components/SkillsSection";
+import EventsSection from "@/components/EventsSection";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
@@ -12,9 +12,9 @@ const Index = () => {
       
       <div className="relative z-10">
         <HeroSection />
-        <JourneySection />
+        <TechStackSection />
         <ProjectsSection />
-        <SkillsSection />
+        <EventsSection />
         <ContactSection />
       </div>
     </main>
