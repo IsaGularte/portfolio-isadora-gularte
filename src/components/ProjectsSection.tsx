@@ -5,23 +5,23 @@ import { Github, ExternalLink } from "lucide-react";
 const projects = [
   {
     title: "PharmaSearch",
-    description: "App/API de comparação de preços de medicamentos com web scraping usando Selenium. Backend em Node.js/Express com processamento JSON. Inclui Plano de Negócios completo.",
+    description: "Aplicativo/API para comparação de preços de medicamentos. Realiza Web scraping (São João e Panvel), possui API própria em Node.js + Express com retorno em JSON. Projeto inclui Plano de negócios (Lean Canvas).",
     tags: ["Node.js", "Express", "Selenium", "Web Scraping"],
   },
   {
     title: "MarketMind",
-    description: "Simulador de Comportamento de Consumidores com IA. Análise de cenários de mercado (pessimista/otimista) e análise financeira detalhada para tomada de decisões estratégicas.",
-    tags: ["IA", "Análise Financeira", "Simulação"],
+    description: "Simulador de Comportamento de Consumidores com IA. Simula aceitação de produtos no mercado com cenários (pessimista, provável, otimista). Realiza cálculos de receita, custos, margem e lucro, aplicando conceitos de marketing.",
+    tags: ["IA", "Análise de Dados", "Lean Canvas"],
   },
   {
     title: "App Fitness",
-    description: "Fluxo de telas completo para aplicativo de fitness com chat assistente inteligente, integração com smartwatch e foco intenso em UX/UI para máxima usabilidade.",
-    tags: ["UX/UI", "Figma", "FlutterFlow", "Mobile"],
+    description: "Aplicativo com fluxo de telas completo, chat assistente e treinos personalizados. Possui integração com relógio inteligente e foco total na experiência do usuário (UX).",
+    tags: ["Mobile", "UX", "Wearables"],
   },
   {
-    title: "Batalha Naval",
-    description: "Jogo clássico em Java (Console). Jogador vs PC com alocação automática de navios e validação completa de mapas. Sistema de turnos e inteligência artificial básica.",
-    tags: ["Java", "Console", "Game Logic"],
+    title: "Jogo Batalha Naval",
+    description: "Jogo desenvolvido em Java (Console). Modos Jogador vs Jogador e Jogador vs Computador. Possui alocação manual ou automática de navios e validação robusta de jogadas e mapas.",
+    tags: ["Java", "Lógica", "Console"],
   },
 ];
 
@@ -34,10 +34,20 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-16 text-foreground"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-4 text-gradient-vibrant"
         >
           Projetos
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-center text-muted-foreground mb-16 text-lg"
+        >
+          Portfólio Detalhado
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
@@ -47,14 +57,13 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              className="glass-card p-6 hover:border-space-cyan/50 transition-all duration-300"
+              className="glass-card-glow p-6"
             >
-              <h3 className="text-2xl font-bold text-foreground mb-3">
+              <h3 className="text-2xl font-bold text-gradient-vibrant mb-3 font-display">
                 {project.title}
               </h3>
               
-              <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+              <p className="text-foreground/80 mb-6 leading-relaxed text-sm">
                 {project.description}
               </p>
 
@@ -62,7 +71,7 @@ const ProjectsSection = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs bg-muted/50 border border-border rounded-full text-foreground/70"
+                    className="px-3 py-1 text-xs bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 border border-neon-cyan/30 rounded-full text-neon-cyan font-medium"
                   >
                     {tag}
                   </span>
@@ -73,18 +82,18 @@ const ProjectsSection = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex-1 border-space-cyan/50 text-space-cyan hover:bg-space-cyan/10 hover:border-space-cyan"
+                  className="flex-1 border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10 hover:border-neon-cyan btn-glow-cyan font-medium"
                   asChild
                 >
                   <a href="#" target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" />
-                    Ver Código
+                    Ver Repositório
                   </a>
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex-1 border-space-purple/50 text-space-purple hover:bg-space-purple/10 hover:border-space-purple"
+                  className="flex-1 border-neon-magenta/50 text-neon-magenta hover:bg-neon-magenta/10 hover:border-neon-magenta btn-glow-magenta font-medium"
                   asChild
                 >
                   <a href="#" target="_blank" rel="noopener noreferrer">

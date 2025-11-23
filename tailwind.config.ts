@@ -47,9 +47,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "space-cyan": "hsl(var(--space-cyan))",
-        "space-purple": "hsl(var(--space-purple))",
-        "space-gray": "hsl(var(--space-gray))",
+        "neon-cyan": "hsl(var(--neon-cyan))",
+        "neon-purple": "hsl(var(--neon-purple))",
+        "neon-magenta": "hsl(var(--neon-magenta))",
+        "deep-blue": "hsl(var(--deep-blue))",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

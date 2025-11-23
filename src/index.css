@@ -8,92 +8,128 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Deep Space Minimalist Color System */
-    --background: 240 10% 4%;
+    /* Deep Space Vibrant Color System */
+    --background: 240 60% 5%;
     --foreground: 0 0% 98%;
 
-    --card: 240 8% 8%;
+    --card: 240 50% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 8% 8%;
+    --popover: 240 50% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 210 100% 60%;
+    --primary: 190 100% 50%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 5% 15%;
+    --secondary: 240 30% 12%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 5% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 240 20% 15%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 270 80% 65%;
+    --accent: 280 100% 65%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 10% 18%;
-    --input: 240 8% 12%;
-    --ring: 210 100% 60%;
+    --border: 240 30% 15%;
+    --input: 240 40% 10%;
+    --ring: 190 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom Space Colors */
-    --space-cyan: 190 100% 60%;
-    --space-purple: 270 80% 65%;
-    --space-gray: 240 5% 25%;
+    /* Vibrant Neon Colors */
+    --neon-cyan: 190 100% 50%;
+    --neon-purple: 280 76% 53%;
+    --neon-magenta: 300 100% 62%;
+    --deep-blue: 240 60% 11%;
   }
 }
 
 @layer utilities {
-  /* Subtle Accent Effects */
-  .text-space-cyan {
-    @apply text-[hsl(var(--space-cyan))];
+  /* Vibrant Neon Text */
+  .text-neon-cyan {
+    @apply text-[hsl(var(--neon-cyan))];
   }
 
-  .text-space-purple {
-    @apply text-[hsl(var(--space-purple))];
+  .text-neon-purple {
+    @apply text-[hsl(var(--neon-purple))];
   }
 
-  /* Minimal Glass Cards */
+  .text-neon-magenta {
+    @apply text-[hsl(var(--neon-magenta))];
+  }
+
+  /* Gradient Text */
+  .text-gradient-vibrant {
+    background: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-magenta)), hsl(var(--neon-purple)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Vibrant Glass Cards with Glow */
   .glass-card {
-    @apply bg-card/40 backdrop-blur-md border border-border rounded-lg;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    @apply bg-[hsl(var(--deep-blue))]/50 backdrop-blur-lg border border-border rounded-xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
-  /* Subtle Glow for Avatar */
-  @keyframes subtle-glow {
+  .glass-card-glow {
+    @apply glass-card;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-glow:hover {
+    border-color: hsl(var(--neon-cyan) / 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 30px hsl(var(--neon-cyan) / 0.3),
+                inset 0 0 20px hsl(var(--neon-cyan) / 0.05);
+  }
+
+  /* Avatar with Gradient Border Glow */
+  @keyframes avatar-glow {
     0%, 100% {
-      box-shadow: 0 0 30px hsl(var(--space-cyan) / 0.3),
-                  0 0 60px hsl(var(--space-purple) / 0.2);
+      box-shadow: 0 0 40px hsl(var(--neon-cyan) / 0.6),
+                  0 0 80px hsl(var(--neon-purple) / 0.4);
     }
     50% {
-      box-shadow: 0 0 40px hsl(var(--space-cyan) / 0.4),
-                  0 0 80px hsl(var(--space-purple) / 0.3);
+      box-shadow: 0 0 60px hsl(var(--neon-cyan) / 0.8),
+                  0 0 120px hsl(var(--neon-purple) / 0.6);
     }
   }
 
   .avatar-glow {
-    animation: subtle-glow 4s ease-in-out infinite;
+    animation: avatar-glow 3s ease-in-out infinite;
   }
 
-  /* Thin Accent Borders */
-  .border-accent-cyan {
-    @apply border border-[hsl(var(--space-cyan))];
+  /* Gradient Borders */
+  .border-gradient-neon {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple))) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
 
-  .border-accent-purple {
-    @apply border border-[hsl(var(--space-purple))];
+  /* Button Glow Effects */
+  .btn-glow-cyan {
+    transition: all 0.3s ease;
   }
 
-  /* Hover Effects */
-  .hover-accent-cyan {
-    @apply hover:border-[hsl(var(--space-cyan))] hover:text-[hsl(var(--space-cyan))] transition-all duration-300;
+  .btn-glow-cyan:hover {
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.6),
+                0 0 40px hsl(var(--neon-cyan) / 0.4);
   }
 
-  .hover-accent-purple {
-    @apply hover:border-[hsl(var(--space-purple))] hover:text-[hsl(var(--space-purple))] transition-all duration-300;
+  .btn-glow-magenta {
+    transition: all 0.3s ease;
+  }
+
+  .btn-glow-magenta:hover {
+    box-shadow: 0 0 20px hsl(var(--neon-magenta) / 0.6),
+                0 0 40px hsl(var(--neon-magenta) / 0.4);
   }
 }
 
