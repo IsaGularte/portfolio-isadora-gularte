@@ -1,16 +1,14 @@
 import { useEffect, useRef } from "react";
 
-interface Particle {
+interface Star {
   x: number;
   y: number;
   size: number;
-  speedX: number;
-  speedY: number;
-  color: string;
+  speed: number;
   opacity: number;
 }
 
-const FloatingParticles = () => {
+const StarField = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -23,22 +21,15 @@ const FloatingParticles = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles: Particle[] = [];
-    const colors = [
-      "rgba(0, 255, 255, 0.6)",
-      "rgba(255, 0, 255, 0.6)",
-      "rgba(148, 0, 211, 0.6)",
-    ];
+    const stars: Star[] = [];
 
-    // Create particles
-    for (let i = 0; i < 50; i++) {
-      particles.push({
+    // Create stars
+    for (let i = 0; i < 200; i++) {
+      stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        size: Math.random() * 1.5 + 0.5,
+        speed: Math.random() * 0.05 + 0.02,
         opacity: Math.random() * 0.5 + 0.3,
       });
     }
@@ -46,20 +37,20 @@ const FloatingParticles = () => {
     let animationFrameId: number;
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(11, 11, 21, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle) => {
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
+      stars.forEach((star) => {
+        star.y += star.speed;
 
-        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
 
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = particle.color;
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
       });
 
@@ -85,9 +76,8 @@ const FloatingParticles = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ mixBlendMode: "screen" }}
     />
   );
 };
 
-export default FloatingParticles;
+export default StarField;

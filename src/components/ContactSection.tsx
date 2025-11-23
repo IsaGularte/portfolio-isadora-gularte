@@ -8,25 +8,21 @@ const contacts = [
     icon: MessageCircle,
     label: "WhatsApp",
     href: "https://wa.me/5551980337058",
-    color: "neon-cyan",
   },
   {
     icon: Mail,
     label: "Email",
     href: "mailto:isagularte09@gmail.com",
-    color: "neon-magenta",
   },
   {
     icon: Instagram,
     label: "Instagram",
     href: "https://www.instagram.com/isa_gularte27",
-    color: "neon-purple",
   },
   {
     icon: Github,
     label: "GitHub",
     href: "https://github.com/IsaGularte",
-    color: "neon-cyan",
   },
 ];
 
@@ -37,39 +33,39 @@ const ContactSection = () => {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron text-center mb-8 text-gradient-neon"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-8 text-foreground"
         >
-          Conexão
+          Vamos Conversar
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center text-lg font-inter text-foreground/80 mb-12"
+          className="text-center text-base text-muted-foreground mb-12"
         >
-          Vamos criar algo incrível juntos?
+          Entre em contato para colaborações e projetos
         </motion.p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {contacts.map((contact, index) => {
             const Icon = contact.icon;
             return (
               <motion.div
                 key={contact.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
               >
                 <Button
                   variant="outline"
                   size="lg"
-                  className={`w-full h-20 text-lg font-syncopate border-2 border-${contact.color} text-${contact.color} hover:bg-${contact.color}/10 transition-all duration-300`}
+                  className="w-full h-16 text-base font-medium border-border text-foreground hover:border-space-cyan hover:text-space-cyan hover:bg-space-cyan/5 transition-all duration-300"
                   asChild
                 >
                   <a
@@ -78,7 +74,7 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3"
                   >
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-5 h-5" />
                     {contact.label}
                   </a>
                 </Button>
@@ -90,12 +86,12 @@ const ContactSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-12 font-inter text-sm text-muted-foreground"
+          className="text-center mt-16 text-sm text-muted-foreground space-y-2"
         >
-          <p>Desenvolvido com 💜 por Isadora Gularte</p>
-          <p className="mt-2 text-xs">Portfólio 2025 | Synthwave Edition</p>
+          <p>Desenvolvido por Isadora Gularte</p>
+          <p className="text-xs">Portfólio 2025</p>
         </motion.div>
       </div>
     </section>
