@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { MapPin, Mail } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -8,70 +7,59 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="text-center max-w-4xl mx-auto"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="glass-card p-8 md:p-12 max-w-lg mx-auto text-center"
       >
+        {/* Avatar */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-10 inline-block relative"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-6 inline-block"
         >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-purple blur-xl opacity-50"></div>
-          <Avatar className="w-44 h-44 md:w-56 md:h-56 relative border-4 border-transparent bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-purple p-1 avatar-glow">
+          <Avatar className="w-32 h-32 md:w-40 md:h-40 mx-auto border-4 border-transparent bg-gradient-to-r from-neon-cyan to-neon-purple p-1 rounded-full">
             <div className="w-full h-full rounded-full overflow-hidden bg-background">
-              <AvatarImage src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" alt="Isadora Gularte" className="w-full h-full object-cover" />
-              <AvatarFallback className="bg-gradient-to-br from-neon-cyan/20 to-neon-purple/20 text-4xl font-bold text-foreground">
+              <AvatarImage 
+                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+                alt="Isadora Gularte" 
+                className="w-full h-full object-cover" 
+              />
+              <AvatarFallback className="bg-card text-2xl font-bold text-foreground">
                 IG
               </AvatarFallback>
             </div>
           </Avatar>
         </motion.div>
 
+        {/* Name */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold font-display mb-6 text-gradient-vibrant"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-3xl md:text-4xl font-bold font-display mb-4 text-foreground"
         >
           Isadora Gularte
         </motion.h1>
 
+        {/* Info */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-4 text-lg md:text-xl text-muted-foreground mb-6"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="space-y-2 text-muted-foreground text-sm md:text-base"
         >
-          <span className="font-semibold text-neon-cyan">16 anos</span>
-          <span className="text-border">•</span>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-neon-magenta" />
-            <span>Parobé, RS</span>
-          </div>
-          <span className="text-border hidden md:inline">•</span>
-          <div className="flex items-center gap-2">
-            <Mail className="w-5 h-5 text-neon-purple" />
-            <a 
-              href="mailto:isagularte09@gmail.com" 
-              className="hover:text-neon-cyan transition-colors duration-300"
-            >
-              isagularte09@gmail.com
-            </a>
-          </div>
+          <p><span className="text-neon-cyan font-medium">16 anos</span></p>
+          <p>Rua João Knack, 567, Guarani, Parobé</p>
         </motion.div>
 
+        {/* Bio */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-base md:text-lg text-foreground/90 max-w-3xl mx-auto leading-relaxed"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-6 text-foreground/90 text-sm md:text-base leading-relaxed"
         >
-          Desenvolvedora Full Stack apaixonada por inovação.
-          <br />
-          <span className="text-neon-magenta font-medium">
-            Transformo ideias em código com foco em UX, performance e automação.
-          </span>
+          Desenvolvedora Full Stack. Foco em Front-end, Back-end e Design.
         </motion.p>
       </motion.div>
     </section>

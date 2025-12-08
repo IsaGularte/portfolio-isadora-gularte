@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Deep Space Vibrant Color System */
-    --background: 240 60% 5%;
+    --background: 0 0% 1%;
     --foreground: 0 0% 98%;
 
     --card: 240 50% 8%;
