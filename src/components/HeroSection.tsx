@@ -8,7 +8,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="glass-card p-8 md:p-12 max-w-lg mx-auto text-center"
+        className="glass-card-glow p-8 md:p-12 max-w-lg mx-auto text-center"
       >
         {/* Avatar */}
         <motion.div
