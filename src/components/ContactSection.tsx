@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Mail, Github, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import { Mail, Github, Linkedin, MessageCircle } from "lucide-react";
 
 const contacts = [
   {
@@ -19,7 +19,7 @@ const contacts = [
     icon:Linkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/isadora-gularte-a063b4258/",
-    gradient: "from-neon-purple to-neon-cyan",
+    gradient: "from-neon-cyan to-neon-magenta",
   },
   {
     icon: Mail,
