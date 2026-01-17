@@ -9,13 +9,6 @@ const contacts = [
     href: "https://wa.me/5551980337058",
     gradient: "from-neon-cyan to-neon-magenta",
   },
-  
-  {
-    icon: Instagram,
-    label: "Instagram",
-    href: "https://www.instagram.com/isa_gularte27",
-    gradient: "from-neon-purple to-neon-cyan",
-  },
   {
     icon: Github,
     label: "GitHub",
