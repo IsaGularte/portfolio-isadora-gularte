@@ -1,31 +1,36 @@
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, X } from "lucide-react";
+import pharmasearchVideo from "@/../public/videos/pharmasearch-preview.mp4";
 
 const projects = [
   {
     title: "PharmaSearch",
-    description: "Aplicativo/API para comparação de preços de medicamentos. Realiza Web scraping (São João e Panvel), possui API própria em Node.js + Express com retorno em JSON. Projeto inclui Plano de negócios (Lean Canvas).",
-    tags: ["Node.js", "Express", "Selenium", "Web Scraping"],
+    description: "Trabalho de Conclusão de Curso: Aplicativo para comparação e geolocalização de preços de medicamentos na cidade de Taquara e Parobé. Realiza Web scraping (São João, Maxxi e Panvel), possui API própria em Python e banco de dados Mongo Atlas. No desenvolvimento do projeto adquiri experiência com ferramentas e tecnologias, além de valores como: trabalho em equipe, comunicação e gestão de tempo.",
+    tags: ["Python", "Flesk", "Selenium", "Web Scraping"],
+    repo: "https://github.com/Bruno-fridrich/PharmaSearch.git",
+    video: "/videos/pharmasearch-preview.mp4",
   },
   {
-    title: "MarketMind",
-    description: "Simulador de Comportamento de Consumidores com IA. Simula aceitação de produtos no mercado com cenários (pessimista, provável, otimista). Realiza cálculos de receita, custos, margem e lucro, aplicando conceitos de marketing.",
-    tags: ["IA", "Análise de Dados", "Lean Canvas"],
-  },
-  {
-    title: "App Fitness",
-    description: "Aplicativo com fluxo de telas completo, chat assistente e treinos personalizados. Possui integração com relógio inteligente e foco total na experiência do usuário (UX).",
-    tags: ["Mobile", "UX", "Wearables"],
+    title: "FitAI Pro",
+    description: "Aplicativo com fluxo de telas completo, chat IA assistente e treinos personalizados detalhados de acordo com o objetivo do usuário, como também cronômetro e registro de treino. É possível documentar os alimentos consumidos durante o dia, definir metas, como o consumo de proteínas, e monitorar a evolução do usuário. A ideia surgiu quando percebi a dor de pessoas que não tem suporte para auxiliar na sua saúde física.",
+    tags: ["IA", "UX", "Wearables"],
+    repo: "https://github.com/IsaGularte/fitai-pro-elevate.git",
+    video: "/videos/Fit-AI-preview.mp4",
   },
   {
     title: "Jogo Batalha Naval",
-    description: "Jogo desenvolvido em Java (Console). Modos Jogador vs Jogador e Jogador vs Computador. Possui alocação manual ou automática de navios e validação robusta de jogadas e mapas.",
+    description: "Jogo desenvolvido em Java (Console) com interface intuitiva. Modos Jogador vs Jogador e Jogador vs Computador. Possui alocação manual ou automática de navios e validação robusta de jogadas e mapas. Trabalho avaliativo da disciplina de Programação Orientada a Objetos (POO) no curso técnico em Informática. O projeto reforçou significativamente meus conhecimentos em lógica de programação e trabalho em equipe.",
     tags: ["Java", "Lógica", "Console"],
+    repo: "https://github.com/IsaGularte/batalhaNaval.git",
+    video: "/videos/batalha-naval-preview.mp4",
   },
 ];
 
 const ProjectsSection = () => {
+  const [openVideo, setOpenVideo] = useState<string | null>(null);
+
   return (
     <section className="py-20 px-4 relative z-10">
       <div className="max-w-7xl mx-auto">
@@ -34,22 +39,12 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-4 text-gradient-vibrant"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-16 text-gradient-vibrant"
         >
           Projetos
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-center text-muted-foreground mb-16 text-lg"
-        >
-          Portfólio Detalhado
-        </motion.p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -59,11 +54,11 @@ const ProjectsSection = () => {
               viewport={{ once: true }}
               className="glass-card-glow p-6"
             >
-              <h3 className="text-2xl font-bold text-gradient-vibrant mb-3 font-display">
+              <h3 className="text-xl sm:text-2xl font-bold text-gradient-vibrant mb-3 font-display">
                 {project.title}
               </h3>
               
-              <p className="text-foreground/80 mb-6 leading-relaxed text-sm">
+              <p className="text-foreground/80 mb-6 leading-relaxed text-xs sm:text-sm text-justify">
                 {project.description}
               </p>
 
@@ -71,21 +66,21 @@ const ProjectsSection = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 border border-neon-cyan/30 rounded-full text-neon-cyan font-medium"
+                    className="px-3 py-1 text-[0.65rem] sm:text-xs bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 border border-neon-cyan/30 rounded-full text-neon-cyan font-medium"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex-1 border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10 hover:border-neon-cyan btn-glow-cyan font-medium"
+                  className="sm:flex-1 border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10 hover:border-neon-cyan btn-glow-cyan font-medium"
                   asChild
                 >
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a href={project.repo ?? "#"} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" />
                     Ver Repositório
                   </a>
@@ -93,18 +88,32 @@ const ProjectsSection = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex-1 border-neon-magenta/50 text-neon-magenta hover:bg-neon-magenta/10 hover:border-neon-magenta btn-glow-magenta font-medium"
-                  asChild
+                    className={`sm:flex-1 border-neon-magenta/50 text-neon-magenta hover:bg-neon-magenta/10 hover:border-neon-magenta btn-glow-magenta font-medium ${!pharmasearchVideo ? "opacity-60 cursor-not-allowed" : ""}`}
+                  onClick={() => project.video && setOpenVideo(project.video)}
+                  disabled={!project.video}
                 >
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Ver Projeto
-                  </a>
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Ver Projeto
                 </Button>
               </div>
             </motion.div>
           ))}
         </div>
+        {openVideo && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-black/60" onClick={() => setOpenVideo(null)} />
+            <div className="relative bg-background rounded-lg overflow-hidden max-w-3xl w-full">
+              <button
+                aria-label="Fechar pré-visualização"
+                className="absolute top-2 right-2 p-2 rounded-md text-white"
+                onClick={() => setOpenVideo(null)}
+              >
+                <X />
+              </button>
+              <video src={openVideo ?? undefined} controls autoPlay className="w-full h-auto max-h-[80vh] bg-black" />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

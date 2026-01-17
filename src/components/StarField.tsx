@@ -29,9 +29,9 @@ const StarField = () => {
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() < 0.7 ? 1 : 1.5, // Mostly 1px, some 1.5px
+        size: Math.random() < 0.7 ? 1 : 1.5, 
         baseOpacity: Math.random() * 0.4 + 0.3,
-        twinkleSpeed: Math.random() * 0.0005 + 0.0002, // Very slow twinkle
+        twinkleSpeed: Math.random() * 0.0005 + 0.0002, 
         twinkleOffset: Math.random() * Math.PI * 2,
       });
     }

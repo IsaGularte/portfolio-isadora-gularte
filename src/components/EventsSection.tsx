@@ -25,7 +25,7 @@ const EventsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-16 text-gradient-vibrant"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-16 text-gradient-vibrant"
         >
           Eventos e Participações
         </motion.h2>
@@ -45,10 +45,10 @@ const EventsSection = () => {
                 <CheckCircle2 className="w-6 h-6 text-neon-cyan" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-2 font-display">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 font-display">
                   {event.title}
                 </h3>
-                <p className="text-muted-foreground">{event.description}</p>
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground">{event.description}</p>
               </div>
             </motion.div>
           ))}
