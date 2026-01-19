@@ -9,9 +9,8 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="glass-card-glow p-6 md:p-12 lg:p-16 max-w-lg md:max-w-3xl lg:max-w-4xl mx-auto text-center"
+        className="glass-card-glow p-6 md:p-12 lg:p-20 max-w-2xl md:max-w-6xl lg:max-w-7xl mx-auto text-center"
       >
-        {/* Avatar */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -32,7 +31,6 @@ const HeroSection = () => {
           </Avatar>
         </motion.div>
 
-        {/* Name */}
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,7 +40,6 @@ const HeroSection = () => {
           Isadora Gularte
         </motion.h1>
 
-        {/* Info */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,14 +50,13 @@ const HeroSection = () => {
           <p>Parobé - RS</p>
         </motion.div>
 
-        {/* Bio */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-4 sm:mt-6 text-foreground/90 text-xs sm:text-sm md:text-base leading-relaxed"
         >
-          Desenvolvedora Full Stack. Foco em Back-end, Front-end e Design.
+          Desenvolvedora de Software Web e Mobile, em busca de aprender e crescer na área de tecnologia. 
         </motion.p>
       </motion.div>
     </section>

@@ -39,7 +39,7 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-16 text-gradient-vibrant"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center lg:py-4 mb-16 text-gradient-vibrant"
         >
           Projetos
         </motion.h2>
@@ -105,10 +105,10 @@ const ProjectsSection = () => {
             <div className="relative bg-background rounded-lg overflow-hidden max-w-3xl w-full">
               <button
                 aria-label="Fechar pré-visualização"
-                className="absolute top-2 right-2 p-2 rounded-md text-white"
+                className="absolute top-4 right-4 z-10 p-2 rounded-md bg-black/50 hover:bg-black/80 text-white transition-colors"
                 onClick={() => setOpenVideo(null)}
               >
-                <X />
+                <X size={24} />
               </button>
               <video src={openVideo ?? undefined} controls autoPlay className="w-full h-auto max-h-[80vh] bg-black" />
             </div>

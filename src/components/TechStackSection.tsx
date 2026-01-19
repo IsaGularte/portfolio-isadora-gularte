@@ -28,7 +28,7 @@ const TechStackSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-4 text-gradient-vibrant"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-6 leading-relaxed lg:py-4 text-gradient-vibrant"
         >
           Tecnologias e Ferramentas
         </motion.h2>

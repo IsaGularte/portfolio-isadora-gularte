@@ -25,7 +25,7 @@ const EventsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center mb-16 text-gradient-vibrant"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-center lg:py-4 mb-16 text-gradient-vibrant"
         >
           Eventos e Participações
         </motion.h2>
