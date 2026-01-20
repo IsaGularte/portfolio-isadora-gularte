@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, X } from "lucide-react";
@@ -30,6 +30,18 @@ const projects = [
 
 const ProjectsSection = () => {
   const [openVideo, setOpenVideo] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (openVideo) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [openVideo]);
 
   return (
     <section className="py-20 px-4 relative z-10">
