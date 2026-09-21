@@ -14,6 +14,10 @@ const events = [
     title: "Devs do Paranhana",
     description: "Comunidade de desenvolvedores da região",
   },
+  {
+    title: "FEINTEC",
+    description: "Assessoria na feira de tecnologia organizada pelo CIMOL",
+  },
 ];
 
 const EventsSection = () => {

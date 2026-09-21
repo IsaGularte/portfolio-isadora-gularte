@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, X } from "lucide-react";
-import pharmasearchVideo from "@/../public/videos/pharmasearch-preview.mp4";
 
 const projects = [
   {
@@ -14,10 +13,8 @@ const projects = [
   },
   {
     title: "FitAI Pro",
-    description: "Aplicativo com fluxo de telas completo, chat IA assistente e treinos personalizados detalhados de acordo com o objetivo do usuário, como também cronômetro e registro de treino. É possível documentar os alimentos consumidos durante o dia, definir metas, como o consumo de proteínas, e monitorar a evolução do usuário. A ideia surgiu quando percebi a dor de pessoas que não tem suporte para auxiliar na sua saúde física.",
-    tags: ["IA", "UX", "Wearables"],
-    repo: "https://github.com/IsaGularte/fitai-pro-elevate.git",
-    video: "/videos/Fit-AI-preview.mp4",
+    description: "App de fitness mobile dual-mode, onde aluno e personal trainer usam a mesma conta (modelo Uber-like). Conta com treinos personalizados, IA assistente, marketplace de trainers, agendamento e cobrança. Stack 100% self-hosted (sem serviços pagos): React Native/Expo no front-end e NestJS, Prisma e PostgreSQL no back-end. A jornada completa — cadastro, busca de trainer, agenda, treino e cobrança — já está construída e testada, com cerca de 400 testes entre unitários e e2e.",
+    tags: ["React Native", "Expo", "NestJS", "PostgreSQL"],
   },
   {
     title: "Jogo Batalha Naval",
@@ -85,29 +82,34 @@ const ProjectsSection = () => {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="sm:flex-1 border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10 hover:border-neon-cyan btn-glow-cyan font-medium"
-                  asChild
-                >
-                  <a href={project.repo ?? "#"} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
-                    Ver Repositório
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                    className={`sm:flex-1 border-neon-magenta/50 text-neon-magenta hover:bg-neon-magenta/10 hover:border-neon-magenta btn-glow-magenta font-medium ${!pharmasearchVideo ? "opacity-60 cursor-not-allowed" : ""}`}
-                  onClick={() => project.video && setOpenVideo(project.video)}
-                  disabled={!project.video}
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Ver Projeto
-                </Button>
-              </div>
+              {(project.repo || project.video) && (
+                <div className="flex flex-col sm:flex-row gap-3">
+                  {project.repo && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="sm:flex-1 border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10 hover:border-neon-cyan btn-glow-cyan font-medium"
+                      asChild
+                    >
+                      <a href={project.repo} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        Ver Repositório
+                      </a>
+                    </Button>
+                  )}
+                  {project.video && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="sm:flex-1 border-neon-magenta/50 text-neon-magenta hover:bg-neon-magenta/10 hover:border-neon-magenta btn-glow-magenta font-medium"
+                      onClick={() => setOpenVideo(project.video)}
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Ver Projeto
+                    </Button>
+                  )}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

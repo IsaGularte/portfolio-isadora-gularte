@@ -10,7 +10,7 @@ const techStack = {
   backend: {
     title: "Back-end",
     icon: Database,
-    items: ["Node.js", "Express", "Web Scraping", "Selenium", "Java", "JSON", "Git/GitHub", "Gitflow", "Python", "MySQL", "APIs REST"],
+    items: ["Node.js", "Express", "Oracle APEX", "PL/SQL", "Web Scraping", "Selenium", "Java", "JSON", "Git/GitHub", "Gitflow", "Python", "MySQL", "Oracle", "APIs REST"],
   },
   design: {
     title: "Design",
